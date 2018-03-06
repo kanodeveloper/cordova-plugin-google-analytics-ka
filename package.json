@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-google-analytics-ka",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Plugin for Google Analytics Native SDKs (Android, iOS)",
   "cordova": {
     "id": "cordova-plugin-google-analytics-ka",

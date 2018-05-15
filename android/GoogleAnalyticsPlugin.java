@@ -39,6 +39,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.ListIterator;
 
 public class GoogleAnalyticsPlugin extends CordovaPlugin {
 
@@ -238,7 +239,14 @@ public class GoogleAnalyticsPlugin extends CordovaPlugin {
         if (plugin.hasTracker(callbackContext)) {
           try {
             JSONArray args = new JSONArray(rawArgs);
-            for (Tracker tracker : plugin.trackers) {
+            //for (Tracker tracker : plugin.trackers) {
+            //  tracker.send(objectToMap(args.getJSONObject(0)));
+            //}
+            ListIterator<Tracker> lt = plugin.trackers.listIterator();
+            Tracker tracker = null;
+            while(lt.hasNext())
+            {
+              tracker = lt.next();
               tracker.send(objectToMap(args.getJSONObject(0)));
             }
             callbackContext.success();
